@@ -1,0 +1,129 @@
+/* Paleta de Colores Extraída del HTML */
+.root {
+    -fx-primary: #4e6073;
+    -fx-on-primary: #f4f8ff;
+    -fx-background: #f9f9f9;
+    -fx-surface: #ffffff;
+    -fx-on-surface: #2d3435;
+    -fx-outline: #757c7d;
+    -fx-surface-variant: #dde4e5;
+    -fx-primary-container: #d1e4fb;
+}
+
+/* Contenedor Principal */
+.main-container {
+    -fx-background-color: -fx-background;
+}
+
+/* Header / TopAppBar */
+.header {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 0 0 1 0; /* Solo borde inferior */
+}
+
+.logo-text {
+    -fx-font-family: "Space Grotesk", sans-serif;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-text-fill: #334155;
+}
+
+/* HUD de Juego */
+.label-small {
+    -fx-font-size: 10px;
+    -fx-text-fill: -fx-outline;
+    /* Simulación de tracking-wider */
+}
+
+.headline-medium {
+    -fx-font-family: "Space Grotesk";
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+    -fx-text-fill: -fx-on-surface;
+}
+
+.timer-text {
+    -fx-font-family: "Space Grotesk";
+    -fx-font-size: 30px;
+    -fx-font-weight: 300;
+    -fx-text-fill: -fx-primary;
+}
+
+/* Sudoku Grid */
+.grid-container {
+    -fx-background-color: -fx-surface-variant;
+    -fx-padding: 4px;
+    -fx-background-radius: 8px;
+}
+
+.sudoku-grid {
+    -fx-background-color: -fx-surface-variant;
+}
+
+.cell {
+    -fx-background-color: -fx-surface;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
+    -fx-alignment: center;
+}
+
+.cell-text {
+    -fx-font-family: "Space Grotesk";
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-text-fill: -fx-on-surface;
+}
+
+/* Estado Seleccionado / Activo */
+.cell-highlight {
+    -fx-background-color: #ccdff6; /* primary-fixed-dim/30 */
+    -fx-border-color: -fx-primary;
+    -fx-border-width: 2px;
+}
+
+.cell-text-active {
+    -fx-font-family: "Space Grotesk";
+    -fx-font-size: 28px;
+    -fx-text-fill: -fx-primary;
+}
+
+/* Botones de Control Lateral */
+.utility-button {
+    -fx-background-color: #f2f4f4;
+    -fx-background-radius: 12px;
+    -fx-min-height: 60px;
+}
+
+.utility-button-active {
+    -fx-background-color: -fx-primary-container;
+    -fx-background-radius: 12px;
+    -fx-min-height: 60px;
+}
+
+.num-button {
+    -fx-background-color: #dde4e5;
+    -fx-font-family: "Space Grotesk";
+    -fx-font-size: 24px;
+    -fx-background-radius: 8px;
+}
+
+.num-button-active {
+    -fx-background-color: #d1e4fb;
+    -fx-text-fill: -fx-primary;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+    -fx-background-radius: 8px;
+}
+
+/* Botón Principal */
+.primary-action-button {
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: white;
+    -fx-background-radius: 30px;
+    -fx-font-family: "Space Grotesk";
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 15px 0;
+    -fx-cursor: hand;
+}

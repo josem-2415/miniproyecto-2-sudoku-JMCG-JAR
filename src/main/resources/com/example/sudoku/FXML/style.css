@@ -1,0 +1,13 @@
+/* Titles */
+.main-title {
+    -fx-font-size: 48px;
+    -fx-font-family: "Space Grotesk";
+    -fx-font-weight: bold;
+    -fx-text-fill: #4e6073;
+    -fx-letter-spacing: 10px;
+}
+.subtitle {
+    -fx-font-size: 10px;
+    -fx-text-fill: #757c7d;
+    -fx-letter-spacing: 4px;
+}
