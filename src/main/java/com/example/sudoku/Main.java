@@ -1,6 +1,7 @@
 package com.example.sudoku;
 import com.example.sudoku.view.MenuStage;
 import javafx.application.Application;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;

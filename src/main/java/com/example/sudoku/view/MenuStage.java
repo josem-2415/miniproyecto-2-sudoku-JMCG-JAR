@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 /**
  * Represents the main menu view.
  */
-public class MenuStage {
+public class    MenuStage {
     public MenuStage(Stage stage){
         try{
             FXMLLoader loader = new FXMLLoader(
@@ -17,6 +17,8 @@ public class MenuStage {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("Sudoku");
+            stage.setResizable(false);
             stage.show();
         }catch(Exception e){
             e.printStackTrace();

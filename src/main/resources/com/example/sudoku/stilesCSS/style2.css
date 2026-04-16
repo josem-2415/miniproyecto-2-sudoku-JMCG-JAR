@@ -58,7 +58,7 @@
 }
 
 .sudoku-grid {
-    -fx-background-color: -fx-surface-variant;
+    -fx-background-color: #e4e8e8;
 }
 
 .cell {
@@ -90,7 +90,7 @@
 
 /* Botones de Control Lateral */
 .utility-button {
-    -fx-background-color: #f2f4f4;
+    -fx-background-color: #e4e8e8;
     -fx-background-radius: 12px;
     -fx-min-height: 60px;
 }
