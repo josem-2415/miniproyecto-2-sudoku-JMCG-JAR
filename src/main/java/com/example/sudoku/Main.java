@@ -1,28 +1,19 @@
 package com.example.sudoku;
-import com.example.sudoku.view.MenuStage;
-import javafx.application.Application;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
 
-import java.io.IOException;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import com.example.sudoku.view.MenuStage;
 
 /**
- * Main class that launches the application.
+ * Punto de entrada de la aplicación.
  */
 public class Main extends Application {
-
-    /**
-     * Entry point.
-     */
-    public static void main(String[] args) {
-        launch(args);
+    @Override
+    public void start(Stage primaryStage) {
+        MenuStage.getInstance().showWindow();
     }
 
-    /**
-     * Starts the JavaFX application.
-     */
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-        new MenuStage(primaryStage);
+    public static void main(String[] args) {
+        launch(args);
     }
 }

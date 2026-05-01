@@ -1,46 +1,25 @@
 package com.example.sudoku.controller;
 
-import com.example.sudoku.view.GameStage;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import com.example.sudoku.view.GameStage;
+import com.example.sudoku.view.MenuStage;
 
-/**
- * Controller for the main menu.
- */
 public class MenuController {
 
-    /** Button to start a new game. */
-    @FXML private Button btnPlay;
-
-    /** Button to exit the application. */
-    @FXML private Button btnExit;
-
-    /**
-     * Closes the application.
-     */
     @FXML
-    private void exitGame() {
-        Stage stage = (Stage) btnExit.getScene().getWindow();
-        stage.close();
+    public void initialize() {
     }
 
-    /**
-     * Initializes menu actions.
-     */
+    public void startGame() {
+        MenuStage.getInstance().closeWindow();
+        GameStage.resetInstance();
+        GameStage.getInstance().showWindow();
+    }
     @FXML
-    public void initialize(){
-
-        btnPlay.setOnAction(e -> {
-
-            Stage stage = (Stage) btnPlay.getScene().getWindow();
-
-            try {
-                new GameStage(stage);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-
-        });
+    public void exitGame(ActionEvent event){
+        Platform.exit();
+        System.exit(0);
     }
 }

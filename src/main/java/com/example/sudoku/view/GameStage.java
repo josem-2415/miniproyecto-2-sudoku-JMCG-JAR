@@ -7,19 +7,44 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/**
- * Represents the main game view.
- */
-public class GameStage {
-    public GameStage(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/com/example/sudoku/FXML/game-view.fxml")
-        );
+public class GameStage extends Stage implements IView {
+    private static GameStage instance;
 
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    private GameStage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/sudoku/FXML/game-view.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            this.setScene(scene);
+            this.setTitle("Sudoku - Game");
+            this.setResizable(false);
+        } catch (Exception e) {
+            System.err.println("No ha cargado correctamente el FXML");
+            e.printStackTrace();
+        }
+    }
+
+    public static GameStage getInstance() {
+        if (instance == null) {
+            instance = new GameStage();
+        }
+        return instance;
+    }
+
+    public static void resetInstance() {
+        if (instance != null) {
+            instance.close();
+            instance = null;
+        }
+    }
+
+    @Override
+    public void showWindow() {
+        this.show();
+    }
+
+    @Override
+    public void closeWindow() {
+        this.close();
     }
 }
