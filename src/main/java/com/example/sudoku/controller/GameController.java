@@ -9,7 +9,6 @@ import javafx.animation.AnimationTimer;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -64,7 +63,18 @@ public class GameController {
 
             if (cell.getValue() != 0) {
                 btn.setText(String.valueOf(cell.getValue()));
-                btn.setStyle("-fx-font-weight: bold; -fx-text-fill: black;");
+
+                if (cell.isFixed()) {
+                    btn.setStyle(
+                            "-fx-font-weight: bold; " +
+                                    "-fx-text-fill: black;"
+                    );
+                } else {
+                    btn.setStyle(
+                            "-fx-font-weight: normal; " +
+                                    "-fx-text-fill: #1f3252;"
+                    );
+                }
             }
 
             btn.setOnMouseClicked(e -> handleCellSelection(e, btn));
@@ -75,15 +85,69 @@ public class GameController {
 
     private void handleCellSelection(MouseEvent event, Button btn) {
 
-        if (selectedButton != null) {
-            selectedButton.getStyleClass().remove("selected-cell");
-        }
-
         selectedButton = btn;
 
-        if (!selectedButton.getStyleClass().contains("selected-cell")) {
-            selectedButton.getStyleClass().add("selected-cell");
+        Cell selectedCell =
+                buttonCellMap.get(selectedButton);
+
+        highlightRelatedCells(selectedCell);
+    }
+
+    private void highlightRelatedCells(Cell selectedCell) {
+
+        // Limpiar estilos anteriores
+        for (Button button : buttonCellMap.keySet()) {
+
+            button.getStyleClass().removeAll(
+                    "selected-cell",
+                    "related-cell",
+                    "same-number-cell"
+            );
         }
+
+        int selectedValue = selectedCell.getValue();
+
+        for (Map.Entry<Button, Cell> entry : buttonCellMap.entrySet()) {
+
+            Button button = entry.getKey();
+
+            Cell cell = entry.getValue();
+
+            // MISMA FILA
+            boolean sameRow =
+                    cell.getRow() == selectedCell.getRow();
+
+            // MISMA COLUMNA
+            boolean sameColumn =
+                    cell.getColumn() == selectedCell.getColumn();
+
+            // MISMO BLOQUE
+            boolean sameBlock =
+                    (cell.getRow() / 2 ==
+                            selectedCell.getRow() / 2)
+                            &&
+                            (cell.getColumn() / 3 ==
+                                    selectedCell.getColumn() / 3);
+
+            // Agregar sombreado relacionado
+            if (sameRow || sameColumn || sameBlock) {
+
+                button.getStyleClass().add("related-cell");
+            }
+
+            // MISMO NÚMERO
+            if (
+                    selectedValue != 0
+                            &&
+                            cell.getValue() == selectedValue
+            ) {
+
+                button.getStyleClass().add("same-number-cell");
+            }
+        }
+
+        // Celda seleccionada encima de todo
+        selectedButton.getStyleClass().add("selected-cell");
     }
 
     private void handleKeyPress(KeyEvent event) {
@@ -143,6 +207,13 @@ public class GameController {
             model.setMove(cell.getRow(), cell.getColumn(), value);
             selectedButton.setText(String.valueOf(value));
 
+            selectedButton.setStyle(
+                    "-fx-font-weight: normal; " +
+                            "-fx-text-fill: #1f3252;"
+            );
+
+            highlightRelatedCells(cell);
+
             checkVictory();
 
         } else {
@@ -190,12 +261,26 @@ public class GameController {
     }
 
     private void checkVictory() {
+
         if (model.checkWin()) {
+
             timer.stop();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Victory!");
-            alert.setHeaderText(null);
-            alert.setContentText("¡Felicidades! Has resuelto el Sudoku.");
+
+            String finalTime =
+                    timerLabel.getText();
+
+            Alert alert =
+                    new Alert(Alert.AlertType.INFORMATION);
+
+            alert.setTitle("Sudoku Completed");
+
+            alert.setHeaderText("¡Felicidades!");
+
+            alert.setContentText(
+                    "Has completado el Sudoku.\n\n" +
+                            "Tiempo final: " + finalTime
+            );
+
             alert.showAndWait();
         }
     }
@@ -244,13 +329,27 @@ public class GameController {
     }
 
     private void updateCellVisuals(Button btn) {
+
         Cell cell = buttonCellMap.get(btn);
+
+        btn.setStyle("");
+
         if (cell.isFixed()) {
-            btn.setStyle("-fx-font-weight: bold; -fx-text-fill: black;");
+
+            btn.setStyle(
+                    "-fx-font-weight: bold;" +
+                            "-fx-text-fill: #4e6073;"
+            );
+
         } else {
-            btn.setStyle("-fx-text-fill: #1f3252;");
+
+            btn.setStyle(
+                    "-fx-font-weight: normal;" +
+                            "-fx-text-fill: #1f3252;"
+            );
         }
     }
+
     @FXML
     public void handleErase(ActionEvent event) {
 

@@ -234,3 +234,33 @@
 
     -fx-font-weight: bold;
 }
+
+/* CELDA SELECCIONADA */
+.selected-cell {
+    -fx-background-color: #f2b94b;
+}
+
+/* FILA / COLUMNA / BLOQUE */
+.related-cell {
+    -fx-background-color: #dfeaf5;
+}
+
+/* MISMO NÚMERO */
+.same-number-cell {
+    -fx-background-color: #bfd4ea;
+}
+
+/* MISMO NÚMERO + SELECCIONADA */
+.selected-cell.same-number-cell {
+    -fx-background-color: #f2b94b;
+}
+
+.block-right {
+    -fx-border-width: 0.5 3 0.5 0.5;
+    -fx-border-color: #9db7d5;
+}
+
+.block-bottom {
+    -fx-border-width: 0.5 0.5 3 0.5;
+    -fx-border-color: #9db7d5;
+}

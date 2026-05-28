@@ -13,6 +13,7 @@ public class Cell {
         this.fixed = fixed;
     }
 
+
     public int getRow() { return row; }
     public int getColumn() { return column; }
     public int getValue() { return value; }
