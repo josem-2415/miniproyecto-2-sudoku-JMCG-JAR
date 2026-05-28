@@ -6,29 +6,64 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #f9f9f9;" stylesheets="@../stilesCSS/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sudoku.controller.MenuController">
-    <VBox alignment="CENTER" maxWidth="418.0" prefHeight="407.0" prefWidth="418.0" spacing="30" style="-fx-background-color: #f9f9f9;">
+<VBox prefHeight="400.0"
+      prefWidth="400.0"
+      styleClass="root-container"
+      stylesheets="@../stilesCSS/style.css"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.sudoku.controller.MenuController">
+
+    <VBox alignment="CENTER"
+          maxWidth="418.0"
+          prefHeight="407.0"
+          prefWidth="418.0"
+          spacing="30"
+          styleClass="menu-container">
+
         <padding>
-            <Insets bottom="20" left="20" right="20" top="20" />
+            <Insets bottom="20" left="20" right="20" top="20"/>
         </padding>
 
         <VBox alignment="CENTER" spacing="5">
-            <Label styleClass="main-title" text="SUDOKU" />
-            <Label styleClass="subtitle" text="THE MATHEMATICAL SANCTUARY" />
+
+            <Label styleClass="main-title"
+                   text="SUDOKU"/>
+
+            <Label styleClass="subtitle"
+                   text="THE MATHEMATICAL SANCTUARY"/>
+
         </VBox>
 
         <VBox fillWidth="true" spacing="12">
-            <Button fx:id="btnPlay" maxWidth="Infinity" onAction="#startGame" style="-fx-background-color: #4e6073; -fx-background-radius: 50; -fx-padding: 15 30;" text="NEW GAME" textFill="WHITE">
+
+            <Button fx:id="btnPlay"
+                    maxWidth="Infinity"
+                    onAction="#startGame"
+                    styleClass="primary-button"
+                    text="NEW GAME"
+                    textFill="WHITE">
+
                 <font>
-                    <Font name="System Bold" size="12.0" />
+                    <Font name="System Bold" size="12.0"/>
                 </font>
+
             </Button>
 
-            <Button fx:id="btnExit" maxWidth="Infinity" onAction="#exitGame" style="-fx-background-color: transparent; -fx-border-color: #4e6073; -fx-border-radius: 50; -fx-padding: 15 30;" text="EXIT" textFill="#4e6073">
+            <Button fx:id="btnExit"
+                    maxWidth="Infinity"
+                    onAction="#exitGame"
+                    styleClass="secondary-button"
+                    text="EXIT">
+
                 <font>
-                    <Font name="System Bold" size="12.0" />
+                    <Font name="System Bold" size="12.0"/>
                 </font>
+
             </Button>
+
         </VBox>
+
     </VBox>
+
 </VBox>

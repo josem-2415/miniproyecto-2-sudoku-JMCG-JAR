@@ -18,6 +18,9 @@ public class GameStage extends Stage implements IView {
             this.setScene(scene);
             this.setTitle("Sudoku - Game");
             this.setResizable(false);
+            this.setOnCloseRequest(event -> {
+                event.consume();
+            });
         } catch (Exception e) {
             System.err.println("No ha cargado correctamente el FXML");
             e.printStackTrace();

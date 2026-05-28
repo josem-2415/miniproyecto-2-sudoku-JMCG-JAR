@@ -1,129 +1,236 @@
-/* Paleta de Colores Extraída del HTML */
+/* ROOT */
 .root {
-    -fx-primary: #4e6073;
-    -fx-on-primary: #f4f8ff;
-    -fx-background: #f9f9f9;
-    -fx-surface: #ffffff;
-    -fx-on-surface: #2d3435;
-    -fx-outline: #757c7d;
-    -fx-surface-variant: #dde4e5;
-    -fx-primary-container: #d1e4fb;
+    -fx-background-color: #f4f6f8;
 }
 
-/* Contenedor Principal */
-.main-container {
-    -fx-background-color: -fx-background;
-}
-
-/* Header / TopAppBar */
+/* HEADER */
 .header {
     -fx-background-color: white;
-    -fx-border-color: #e2e8f0;
-    -fx-border-width: 0 0 1 0; /* Solo borde inferior */
+    -fx-border-color: #e5e7eb;
+    -fx-border-width: 0 0 1 0;
 }
 
 .logo-text {
-    -fx-font-family: "Space Grotesk", sans-serif;
+    -fx-font-size: 24px;
+    -fx-font-family: "Space Grotesk";
     -fx-font-weight: bold;
-    -fx-font-size: 20px;
-    -fx-text-fill: #334155;
+    -fx-text-fill: #4e6073;
+    -fx-letter-spacing: 4px;
 }
 
-/* HUD de Juego */
+/* MAIN CONTAINER */
+.main-container {
+    -fx-background-color: transparent;
+}
+
+/* LABELS */
 .label-small {
-    -fx-font-size: 10px;
-    -fx-text-fill: -fx-outline;
-    /* Simulación de tracking-wider */
+    -fx-font-size: 11px;
+    -fx-text-fill: #8b939c;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 2px;
 }
 
 .headline-medium {
-    -fx-font-family: "Space Grotesk";
+    -fx-font-size: 22px;
     -fx-font-weight: bold;
-    -fx-font-size: 24px;
-    -fx-text-fill: -fx-on-surface;
+    -fx-text-fill: #1f3252;
 }
 
 .timer-text {
-    -fx-font-family: "Space Grotesk";
-    -fx-font-size: 30px;
-    -fx-font-weight: 300;
-    -fx-text-fill: -fx-primary;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4e6073;
 }
 
-/* Sudoku Grid */
-.grid-container {
-    -fx-background-color: -fx-surface-variant;
-    -fx-padding: 4px;
-    -fx-background-radius: 8px;
+/* REMOVE BUTTON RELIEF */
+.button {
+    -fx-background-insets: 0;
+    -fx-effect: none;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
 
+.button:hover {
+    -fx-effect: none;
+}
+
+.button:pressed {
+    -fx-effect: none;
+    -fx-background-insets: 0;
+}
+
+/* SUDOKU GRID */
 .sudoku-grid {
-    -fx-background-color: #e4e8e8;
+    -fx-background-color: white;
+    -fx-padding: 6;
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: #d9dee5;
+    -fx-border-width: 1;
 }
 
-.cell {
-    -fx-background-color: -fx-surface;
-    -fx-min-width: 50px;
-    -fx-min-height: 50px;
-    -fx-alignment: center;
-}
-
-.cell-text {
-    -fx-font-family: "Space Grotesk";
+/* CELLS */
+.sudoku-cell {
+    -fx-background-color: white;
+    -fx-border-color: #d0d7de;
+    -fx-border-width: 0.5;
+    -fx-font-size: 22px;
     -fx-font-weight: bold;
-    -fx-font-size: 20px;
-    -fx-text-fill: -fx-on-surface;
+    -fx-text-fill: #1f3252;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-effect: none;
 }
 
-/* Estado Seleccionado / Activo */
-.cell-highlight {
-    -fx-background-color: #ccdff6; /* primary-fixed-dim/30 */
-    -fx-border-color: -fx-primary;
+.sudoku-cell:hover {
+    -fx-background-color: #edf2f7;
+}
+
+.selected-cell {
+    -fx-background-color: #cfe3ff;
+}
+
+.invalid-cell {
+    -fx-border-color: red;
     -fx-border-width: 2px;
+    -fx-background-color: #ffdddd;
 }
 
-.cell-text-active {
-    -fx-font-family: "Space Grotesk";
-    -fx-font-size: 28px;
-    -fx-text-fill: -fx-primary;
-}
-
-/* Botones de Control Lateral */
+/* UTILITY BUTTONS */
 .utility-button {
-    -fx-background-color: #e4e8e8;
-    -fx-background-radius: 12px;
-    -fx-min-height: 60px;
+    -fx-background-color: white;
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-padding: 10;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1;
+
+    -fx-effect: none;
+    -fx-background-insets: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
 
-.utility-button-active {
-    -fx-background-color: -fx-primary-container;
-    -fx-background-radius: 12px;
-    -fx-min-height: 60px;
+.utility-button:hover {
+    -fx-background-color: #f8fafc;
 }
 
+.utility-button:pressed {
+    -fx-background-color: #e9eef5;
+    -fx-effect: none;
+    -fx-background-insets: 0;
+}
+
+/* NUMBER BUTTONS */
 .num-button {
-    -fx-background-color: #dde4e5;
-    -fx-font-family: "Space Grotesk";
-    -fx-font-size: 24px;
-    -fx-background-radius: 8px;
-}
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: #d9dee5;
+    -fx-border-width: 1;
 
-.num-button-active {
-    -fx-background-color: #d1e4fb;
-    -fx-text-fill: -fx-primary;
+    -fx-font-size: 20px;
     -fx-font-weight: bold;
-    -fx-font-size: 24px;
-    -fx-background-radius: 8px;
+    -fx-text-fill: #1f3252;
+
+    -fx-pref-width: 60;
+    -fx-pref-height: 60;
+
+    -fx-effect: none;
+    -fx-background-insets: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
 
-/* Botón Principal */
+.num-button:hover {
+    -fx-background-color: #eef4fb;
+}
+
+.num-button:pressed {
+    -fx-background-color: #dce8f5;
+    -fx-effect: none;
+    -fx-background-insets: 0;
+}
+
+/* NEW GAME BUTTON */
 .primary-action-button {
-    -fx-background-color: -fx-primary;
+    -fx-background-color: #4e6073;
+    -fx-background-radius: 25;
+    -fx-padding: 15 30;
+
     -fx-text-fill: white;
-    -fx-background-radius: 30px;
-    -fx-font-family: "Space Grotesk";
-    -fx-font-weight: bold;
     -fx-font-size: 14px;
-    -fx-padding: 15px 0;
-    -fx-cursor: hand;
+    -fx-font-weight: bold;
+
+    -fx-effect: none;
+    -fx-background-insets: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.primary-action-button:hover {
+    -fx-background-color: #445566;
+}
+
+.primary-action-button:pressed {
+    -fx-background-color: #3c4d5d;
+    -fx-effect: none;
+    -fx-background-insets: 0;
+}
+
+/* PAUSE BUTTON */
+.pause-button {
+    -fx-background-color: #e5e7eb;
+    -fx-background-radius: 12;
+    -fx-padding: 8 14;
+
+    -fx-text-fill: #1f3252;
+    -fx-font-weight: bold;
+
+    -fx-effect: none;
+    -fx-background-insets: 0;
+}
+
+.pause-button:hover {
+    -fx-background-color: #d6dae0;
+}
+
+.pause-button:pressed {
+    -fx-background-color: #c8ced6;
+}
+
+/* RETURN MENU BUTTON */
+.secondary-action-button {
+
+    -fx-background-color: #e5e7eb;
+    -fx-background-radius: 25;
+    -fx-padding: 15 30;
+
+    -fx-text-fill: #1f3252;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+    -fx-effect: none;
+    -fx-background-insets: 0;
+
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.secondary-action-button:hover {
+    -fx-background-color: #d6dae0;
+}
+
+.secondary-action-button:pressed {
+    -fx-background-color: #c8ced6;
+}
+
+.pause-title {
+
+    -fx-text-fill: #4e6073;
+
+    -fx-font-size: 22px;
+
+    -fx-font-weight: bold;
 }

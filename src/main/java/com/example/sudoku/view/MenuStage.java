@@ -18,6 +18,9 @@ public class MenuStage extends Stage implements IView {
             this.setScene(scene);
             this.setTitle("Sudoku - Menu");
             this.setResizable(false);
+            this.setOnCloseRequest(event -> {
+                event.consume();
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }

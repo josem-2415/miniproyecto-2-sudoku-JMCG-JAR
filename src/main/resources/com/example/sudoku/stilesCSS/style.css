@@ -6,8 +6,55 @@
     -fx-text-fill: #4e6073;
     -fx-letter-spacing: 10px;
 }
+
 .subtitle {
     -fx-font-size: 10px;
     -fx-text-fill: #757c7d;
     -fx-letter-spacing: 4px;
+}
+
+/* Containers */
+.root-container {
+    -fx-background-color: #f9f9f9;
+}
+
+.menu-container {
+    -fx-background-color: #f9f9f9;
+}
+
+/* Remove JavaFX relief */
+.button {
+    -fx-background-insets: 0;
+    -fx-effect: none;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.button:hover {
+    -fx-effect: none;
+}
+
+.button:pressed {
+    -fx-effect: none;
+    -fx-background-insets: 0;
+}
+
+/* Main button */
+.primary-button {
+    -fx-background-color: #4e6073;
+    -fx-background-radius: 50;
+    -fx-padding: 15 30;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Secondary button */
+.secondary-button {
+    -fx-background-color: transparent;
+    -fx-border-color: #4e6073;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+    -fx-padding: 15 30;
+    -fx-text-fill: #4e6073;
+    -fx-font-weight: bold;
 }
