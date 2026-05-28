@@ -176,6 +176,7 @@ The project follows the MVC pattern:
 Developed by:
 
 - Jose Manuel Cardona Gil
+- Juan Andres Rodriguez
 
 ---
 
